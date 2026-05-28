@@ -1,0 +1,12 @@
+{
+  "pollIntervalMinutes": 360,
+  "sources": [
+    {
+      "id": "hn-frontpage",
+      "name": "Hacker News — Front Page",
+      "type": "rss",
+      "url": "https://hnrss.org/frontpage",
+      "enabled": true
+    }
+  ]
+}

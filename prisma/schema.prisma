@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model ProcessedHash {
+  id        String   @id @default(cuid())
+  hash      String   @unique
+  createdAt DateTime @default(now())
+}
+
+model Report {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  sourceId        String
+  sourceName      String
+  title           String
+  url             String
+  publishedAt     DateTime
+  rawContent      String?
+  summary         String
+  keyPoints       String
+  category        String
+  importanceScore Int
+  implications    String
+  entryHash       String   @unique
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([createdAt])
+  @@index([importanceScore])
+}
